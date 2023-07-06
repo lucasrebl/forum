@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <label for="email">Adresse e-mail:</label>
+    <input type="email" id="email" name="email" placeholder="email" required><br><br>
+
+    <label for="password">Mot de passe:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <div id="content">
+        <button onclick="onClickLogin()">login</button>
+    </div>
+
+    <h1>Cookie Value:</h1>
+    <p id="cookieValue"></p>
+</body>
+<script>
+    const onClickLogin = () =>{
+        fetch("/tryLogin", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            })
+        })
+    }
+</script>
+<script src="/static/JS/tokenVerification.js"></script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/header.css" type="text/css">
+    <link rel="stylesheet" href="../static/poste.css" type="text/css">
+    <title>Document</title>
+</head>
+<header>
+    <div class="header">
+        <div class="logo">
+            <a href="/"><img id="logo" src="/static/image/logo.png"></a>
+        </div>
+        <div class="ButtonCreateAcc" id="ButtonCreateAcc">
+            <button onclick="window.location.href = 'register';">Crée un compte</button>
+        </div>
+
+        <div class="connexion">
+            <button id="myBtn2"><a href="/">Connexion</a></button>
+        </div>
+</header>
+
+<body>
+
+    <div class="test">
+        <div class="titre1">
+            <h1>titre: {{.Title}}</h1>
+            <h1 id="Username-resp">by: {{.Username}}</h1>
+            <h1>theme: {{.Theme}}</h1>
+        </div>
+        <div class="container-contenu">
+            <div class="contenu">
+                <p>{{.Content}} </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="centre">
+        <div class="container_stat_post">
+            <div class="stat_post">
+                <h4>date</h4>
+                <h4>like<button style="background-color: transparent; border: transparent"><img
+                            onclick="colorChangeFunction()" id="like" src="/static/image/like.png"
+                            width="16em"></button>
+                </h4>
+                <h4>commentaire</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_commentaire">
+        <div class="commentaire">
+            <input type="text" id="commentInput" placeholder="Ecrire un commentaire">
+        </div>
+        <button id="submitComment"><img id="img_send" src="/static/image/send.png" alt=""></button>
+    </div>
+
+    <div class="commentaire_utilisateur">
+        {{range .Comments}}
+
+        <div class="container-comment">
+            <div class="comment-date">
+                <h4>{{.Username}}</h4>
+                <p>Date: {{.CreationDate.Format "2006 January 02"}}</p>
+            </div>
+            <div class="comment">
+                {{.CommentText}}
+            </div>
+        </div>
+    </div>
+        {{end}}
+</body>
+<script>
+    var coeur = document.getElementById("like");
+    var click = 0;
+    function colorChangeFunction() {
+        click++
+        coeur.src = "/static/image/like.png"
+        if (click % 2 == 0) {
+            coeur.src = "/static/image/heart.png"
+        }
+
+    }
+</script>
+<script src="/static/JS/tokenVerification.js"></script>
+<script src="/static/JS/fetchComment.js"></script>
+
+</html>

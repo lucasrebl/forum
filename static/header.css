@@ -1,0 +1,237 @@
+* {
+    padding: 0;
+    margin: 0;
+	box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+
+#logo {
+    height: 10vh;
+    margin-top: 2vh;
+    margin-left: -18vh;
+    margin-bottom: 2vh;
+}
+
+.ButtonCreateAcc button{
+    margin-top: 4vh;
+    height: 5vh;
+    border-radius: 20px;
+    width: 15vh;
+}
+
+.ButtonCreateAcc a {
+	color: black;
+	text-decoration: none;
+}
+
+.ButtonCreatePost button{
+    margin-top: 4vh;
+    height: 5vh;
+    border-radius: 20px;
+    width: 15vh;
+}
+
+#ButtonCreatePost {
+    display:none;
+    
+}
+
+.connexion button{
+    margin-top: 4vh;
+    height: 5vh;
+    border-radius: 20px;
+    width: 15vh;
+}
+
+.connexion a {
+	color: black;
+	text-decoration: none;
+}
+
+.myModal {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	border-radius: 20px;
+    height: auto;
+}
+  
+.close, .close2 {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+  
+.close:hover,
+.close2:hover,
+.close2:focus,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#form {
+    display:grid;
+    justify-content: center;
+}
+
+#title {
+    margin-left: 50vh;
+    margin-right: 50vh;
+    height: 5vh;
+    border-radius: 20px;
+}
+
+#label {
+    margin-left: 51vh;
+    margin-top: 5vh;
+}
+
+#theme {
+    margin-left: 50vh;
+    margin-right: 50vh;
+    height: 5vh;
+    border-radius: 20px;
+    margin-top: 2vh;
+}
+
+#content {
+    margin-left: 40vh;
+    margin-right: 40vh;
+    border-radius: 10px;
+    margin-top: 5vh;
+    height: 8vh;
+    max-width: 600px;
+    min-width: 340px;
+    max-height: 500px;
+    min-height: 200px;
+}
+
+#send, #send2 {
+    margin-left: 75vh;
+    margin-right: 75vh;
+    border-radius: 20px;
+    height: 5vh;
+    margin-top: 5vh;
+    width: 10vh;
+}
+
+#send3 {
+    margin-left: 75vh;
+    margin-right: 75vh;
+    border-radius: 20px;
+    height: 5vh;
+    margin-top: 5vh;
+    width: 13vh;
+    visibility: hidden;
+}
+
+#email {
+    margin-left: 70vh;
+    margin-right: 50vh;
+    height: 5vh;
+    border-radius: 20px;
+}
+
+#password {
+    margin-left: 70vh;
+    margin-right: 50vh;
+    height: 5vh;
+    border-radius: 20px;
+	margin-top: 5vh;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logo {
+        margin-left: 0;
+    }
+
+    .ButtonCreateAcc button,
+    .ButtonCreatePost button,
+    .connexion button {
+        width: 15vh;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .connexion button {
+        margin-bottom: 2vh;
+    }
+
+    #myModal {
+        width: 100%;
+	    height: 100%;
+        margin-top: 70vh;
+        margin-bottom: 5vh;
+    }
+
+    #myModal2 {
+        width: 100%;
+	    height: 100%;
+        margin-top: 56vh;
+
+    }
+
+    .modal-content {
+		width: 80%;
+        height: auto;
+
+	}
+
+    #email, #password, #send2, #send3 {
+        margin-left: 10%;
+		margin-right: 10%;
+    }
+
+    #title {
+        width: 20vh;
+        margin-left: 60vh;
+      }
+    
+      #label {
+        margin-left: 60vh;
+      }
+    
+      #theme {
+        width: 20vh;
+        margin-left: 60vh;
+      }
+    
+      #content {
+        margin-left: 85vw;
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        min-height: 100px;
+      }
+}
+
+@media (min-width: 683px) and (max-width: 764px) {
+    #content {
+        margin-left: 50vw;
+      }
+}

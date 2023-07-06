@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../static/accueil.css" type="text/css">
+    <link rel="stylesheet" href="../static/header.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<header>
+    <div class="header">
+        <div class="logo">
+            <a href="/"><img id="logo" src="/static/image/logo.png"></a>
+        </div>
+        <div class="ButtonCreateAcc" id="ButtonCreateAcc">
+            <button onclick="window.location.href = 'register';">Crée un compte</button>
+        </div>
+        <div class="ButtonCreatePost" id="ButtonCreatePost">
+            <button id="myBtn">Creer un post</button>
+        </div>
+        <div id="myModal" class="myModal">
+            <div class="modal-content" id="modal-content">
+                <span class="close">&times;</span>
+                <form action="" method="POST" id="form">
+                    <input type="titre" id="title" name="titre" placeholder=" Titre" required>
+                    <label for="label" id="label">Theme</label>
+                    <select name="select" id="theme">
+                        <option value="vide"></option>
+                        <option value="jordan">jordan</option>
+                        <option value="claquette">claquette</option>
+                        <option value="nike">nike</option>
+                        <option value="vans">vans</option>
+                    </select>
+                    <textarea type="content" id="content" name="content" placeholder="content" required></textarea>
+
+                    <button id="send" type="reset" onclick="AddPosts()">Publier </button>
+                </form>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+        <div class="connexion">
+            <button id="myBtn2">Connexion</button>
+        </div>
+        <div id="myModal2" class="myModal">
+            <div class="modal-content" id="modal-content2">
+                <span class="close2">&times;</span>
+                <form>
+                    <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
+                    <input type="password" id="password" name="password" placeholder="Mot de passe">
+                    <div id="errorMessage"></div>
+                </form>
+                <button type="button" id="send2" onclick="onClickSubmit()">Connexion</button>
+                <button type="button" id="send3" onclick="onClickDisconnect()">deconnexion</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var modal2 = document.getElementById("myModal2");
+        var btn2 = document.getElementById("myBtn2");
+        var span2 = document.getElementsByClassName("close2")[0];
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+        span2.onclick = function () {
+            modal2.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+    </script>
+</header>
+
+<body>
+    <div class="burger-menu">
+        <nav>
+            <a href="#">
+                <div class="theme">
+                    <form action="">
+                        <label for="chaussures">Theme</label>
+                        <select name="chaussures" id="chaussures">
+                            <option value="vide"></option>
+                            <option value="claquette">jordan</option>
+                            <option value="claquette">claquette</option>
+                            <option value="nike">nike</option>
+                            <option value="vans">vans</option>
+                        </select>
+                        <input type="submit" value="Filtrer">
+                    </form>
+                </div>
+            </a>
+            <a href="#">
+                <form action="/filter" method="POST" id="form-filtre">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" required><br>
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate" required><br>
+
+                    <button type="submit">Filter</button>
+                </form>
+            </a>
+            <a href="#">like
+                <button><img id="like" src="/static/image/like.png"></button></a>
+            <a href="#">comment<button><img id="comment" src="/static/image/comment.png"></button></a>
+        </nav>
+        <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+        </button>
+
+
+    </div>
+    <div class="filtre">
+        <div class="titre">
+            <a>Titre du post</a>
+        </div>
+        <div class="nameUser">
+            <a>Nom d'utilisateur</a>
+        </div>
+        <div class="theme">
+            <form action="">
+                <label for="chaussures">Theme</label>
+                <select name="chaussures" id="chaussures">
+                    <option value="vide"></option>
+                    <option value="claquette">jordan</option>
+                    <option value="claquette">claquette</option>
+                    <option value="nike">nike</option>
+                    <option value="vans">vans</option>
+                </select>
+                <input type="submit" value="Filtrer">
+            </form>
+        </div>
+
+        <div class="date" id="myBtn3">
+            <button><a>Date</a></button>
+        </div>
+        <div class="myModal3" id="myModal3">
+            <div class="modal-content3" id="modal-content3">
+                <span class="close3">&times;</span>
+                <form action="/filter" method="POST" id="form-filtre">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" required><br>
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate" required><br>
+                    <button type="submit">Filter</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            var modal3 = document.getElementById("myModal3");
+            var btn3 = document.getElementById("myBtn3");
+            var span3 = document.getElementsByClassName("close3")[0];
+            btn3.onclick = function () {
+                modal3.style.display = "block";
+            }
+            span3.onclick = function () {
+                modal3.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal3) {
+                    modal3.style.display = "none";
+                }
+            }
+        </script>
+
+        <div class="like">
+            <a>like</a>
+            <button><img id="like" src="/static/image/like.png"></button>
+            <!-- <button><a href="/login"><img id="like" src="/static/image/like.png"></a></button> -->
+        </div>
+        <div class="comment">
+            <a>comment</a>
+            <button><img id="comment" src="/static/image/comment.png"></button>
+        </div>
+    </div>
+
+    <div class="containerPost">
+        {{ range. }}
+        <div class="post">
+            <div class="post-content">
+                <h3>{{.Title}}</h3>
+                <p>{{.UserName}}</p>
+                <p>Theme: {{.Theme}}</p>
+                <p>{{.CreationDate}}</p>
+                <div class="like"><img id="like" src="/static/image/like.png"> Like</div>
+                <div class="comment"><img id="comment" src="/static/image/comment.png"> Commentaire</div>
+                <button id="detail"><a href="{{.DetailURL}}">Voir les détails</a></button>
+
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    <script src="/static/JS/tokenVerification.js"></script>
+    <script src="/static/JS/fetchLogin.js"></script>
+    <script src="/static/JS/fetchDisconnect.js"></script>
+    <script src="/static/JS/fetchAddPosts.js"></script>
+    <script src="/static/JS/rideaux.js"></script>
+
+</body>
+
+</html>
